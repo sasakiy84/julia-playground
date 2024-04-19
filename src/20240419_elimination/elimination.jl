@@ -14,13 +14,13 @@ function subtractPivotRow(𝔸::Matrix, targetRowNum, pivotRowNum)
 end
 
 function doForwardElimination(𝔸::Matrix)::Matrix
-    # because division is used
+    # because the values are going to be divided
     𝔸 = float(𝔸)
 
     # n equations and n unknowns matrix, or augmented matrix are allowed 
     rowNum, colNum = size(𝔸)
     if rowNum > colNum
-        throw(DomainError(𝔸, "rowNum must be less or equal than colNum, but got $(rowNum) by $(colNum)"))
+        throw(DomainError(𝔸, "rowNum must be less than or equal colNum, but got $(rowNum) by $(colNum)"))
     end
 
     for pivotRowNum in 1:rowNum
@@ -64,9 +64,9 @@ AugmentedMatrix = [1 2 1 2;
     3 8 1 12;
     0 4 1 2]
 
-eliminatedAugmentedMatrix = [1.0 2.0 1.0 2.0;
-    0.0 2.0 -2.0 6.0;
-    0.0 0.0 5.0 -10.0]
+eliminatedAugmentedMatrix = [1 2 1 2;
+    0 2 -2 6;
+    0 0 5 -10]
 
 
 @assert doForwardElimination(AugmentedMatrix) == eliminatedAugmentedMatrix
