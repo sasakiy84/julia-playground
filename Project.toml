@@ -1,0 +1,7 @@
+name = "JuliaPlayground"
+uuid = "55c8facd-5832-4314-877a-c7f8e511797d"
+authors = ["sasakiy84 <sasakiy84@g.ecc.u-tokyo.ac.jp>"]
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
